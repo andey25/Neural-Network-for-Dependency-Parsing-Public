@@ -1,7 +1,7 @@
 # Neural Network for Transition-Based Dependency Parsing
 
-## What this project is
-This repository implements a **greedy, transition-based dependency parser** trained with a small neural network. It follows the classic pipeline: (1) read gold dependency trees in **CoNLL format**, (2) generate supervised training examples using an **oracle** over parser configurations (stack/buffer), (3) train a neural classifier to predict the next parser action (SHIFT / LEFT-ARC(label) / RIGHT-ARC(label)), and (4) decode new sentences by repeatedly selecting the highest-scoring **legal** transition until the buffer is empty. Evaluation reports **UAS/LAS** (unlabeled/labeled attachment scores).
+
+This repository implements a **greedy, transition-based dependency parser** trained with a small neural network. It follows the pipeline: (1) read gold dependency trees in **CoNLL format**, (2) generate supervised training examples using an **oracle** over parser configurations (stack/buffer), (3) train a neural classifier to predict the next parser action (SHIFT / LEFT-ARC(label) / RIGHT-ARC(label)), and (4) decode new sentences by repeatedly selecting the highest-scoring **legal** transition until the buffer is empty. Evaluation reports **UAS/LAS** (unlabeled/labeled attachment scores).
 
 At a high level, the model learns a policy for an **arc-standard** style parser using a fixed feature template: the top 3 items of the stack and the first 3 items of the buffer (6 token positions total), represented via learned embeddings.
 
